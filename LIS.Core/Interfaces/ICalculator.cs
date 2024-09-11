@@ -2,6 +2,6 @@
 {
     public interface ICalculator
     {
-        List<int> LongestIncreasingSubsequence(string input);
+        List<int> LongestIncreasingSubsequence(string inputSequence);
     }
 }
