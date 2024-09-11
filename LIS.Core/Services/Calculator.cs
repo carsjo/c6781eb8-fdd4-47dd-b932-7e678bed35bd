@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LIS.Core.Interfaces;
+﻿using LIS.Core.Interfaces;
 
 namespace LIS.Core.Services
 {
@@ -11,7 +6,7 @@ namespace LIS.Core.Services
     {
         public List<int> LongestIncreasingSubsequence(string input)
         {
-            if(string.IsNullOrWhiteSpace(input))
+            if (string.IsNullOrWhiteSpace(input))
             {
                 return [];
             }
@@ -27,7 +22,7 @@ namespace LIS.Core.Services
 
             var numsLength = numArray.Length;
 
-            // Step 2: Initialize DP arrays
+            // Step 2: Initialize arrays
             var lengths = new int[numsLength]; // array keeps track of the length of the longest increasing subsequence ending at each index.
             var predecessors = new int[numsLength]; // array helps in reconstructing the sequence by storing indices of previous elements in the LIS.
 
@@ -58,6 +53,7 @@ namespace LIS.Core.Services
             // Step 5: Reconstruct the LIS
             // Starting from the index of the maximum length, trace back using predecessors to build the LIS.
             var lis = new List<int>();
+
             while (maxIndex != -1)
             {
                 lis.Add(numArray[maxIndex]);
