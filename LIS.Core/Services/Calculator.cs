@@ -21,7 +21,7 @@ namespace LIS.Core.Services
                     return [];
                 }
 
-                // this will fail if the string cannot be converted to an int, known issue
+                // this will fail if the string cannot be converted to an int, out of scope
                 var numArray = Array.ConvertAll(cleaned, int.Parse);
                 var numsLength = numArray.Length;
 
