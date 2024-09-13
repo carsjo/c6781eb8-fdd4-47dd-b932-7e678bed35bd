@@ -4,66 +4,88 @@ namespace LIS.Core.Services
 {
     internal class Calculator : ICalculator
     {
-        public int[] LongestIncreasingSubsequence(string inputSequence)
+        public string[] ParseStringToStringArray(string inputSequence)
+        {
+            if (string.IsNullOrWhiteSpace(inputSequence))
+            {
+                return [];
+            }
+
+            return inputSequence.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries) ?? [];
+        }
+
+        public int[] ConvertStringArrayToIntArray(string[] inputSequence)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(inputSequence))
+                return Array.ConvertAll(inputSequence, int.Parse);
+            }
+            catch
+            {
+                return [];
+            }
+        }
+
+        public int[] ComputeLongestIncreasingSubsequence(string inputSequence)
+        {
+            try
+            {
+                var stringArr = ParseStringToStringArray(inputSequence);
+                if (stringArr.Length == 0)
                 {
                     return [];
                 }
 
-                var stringArr = inputSequence.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
-
-                if (stringArr is null || stringArr.Length == 0)
+                var intArr = ConvertStringArrayToIntArray(stringArr);
+                if (intArr.Length == 0)
                 {
                     return [];
                 }
 
-                var intArr = Array.ConvertAll(stringArr, int.Parse);
+                var maxLength = 0;
+                var maxStartIndex = 0;
+                var currentStartIndex = 0;
+                var currentLength = 1;
 
-                var longestSequence = new List<int>();
-                // initialize with first int in sequence
-                var currentSequence = new List<int> { intArr[0] };
-
-                // loop index starting from second int
                 for (var i = 1; i < intArr.Length; i++)
                 {
-                    // if the current int is greater than the last int in the current sequence
-                    if (intArr[i] > currentSequence[^1])
+                    if (intArr[i] > intArr[i - 1])
                     {
-                        // add it to the current sequence
-                        currentSequence.Add(intArr[i]);
+                        currentLength++;
                     }
                     else
-                    {   
-                        CheckCurrentGreaterThanLongest();
+                    {
+                        CheckCurrentGreaterThanMax();
 
-                        // reset the current sequence to start with the current element
-                        currentSequence.Clear();
-                        currentSequence.Add(intArr[i]);
+                        currentStartIndex = i;
+                        currentLength = 1;
                     }
                 }
 
-                CheckCurrentGreaterThanLongest();
+                CheckCurrentGreaterThanMax();
 
-                return [..longestSequence];
-
-                void CheckCurrentGreaterThanLongest()
+                var longestSequence = new List<int>();
+                for (var i = 0; i < maxLength; i++)
                 {
-                    // if the current sequence is longer than the longest sequence found so far
-                    if (currentSequence.Count > longestSequence.Count)
+                    longestSequence.Add(intArr[maxStartIndex + i]);
+                }
+
+                return [.. longestSequence];
+
+                void CheckCurrentGreaterThanMax()
+                {
+                    if (currentLength > maxLength)
                     {
-                        // update the longest sequence to be the current sequence
-                        longestSequence = new List<int>(currentSequence);
+                        maxLength = currentLength;
+                        maxStartIndex = currentStartIndex;
                     }
                 }
             }
             catch
             {
-                // generic catch all
                 return [];
             }
         }
+
     }
 }

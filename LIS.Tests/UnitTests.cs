@@ -20,7 +20,7 @@ namespace LIS.Tests
         public void Test01(string input, int[] result)
         {
             var calculator = _services.GetRequiredService<ICalculator>();
-            var actual = calculator.LongestIncreasingSubsequence(input);
+            var actual = calculator.ComputeLongestIncreasingSubsequence(input);
             Assert.That(actual, Is.EqualTo(result));
         }
 
@@ -28,7 +28,7 @@ namespace LIS.Tests
         public void Test02(string input, int[] result)
         {
             var calculator = _services.GetRequiredService<ICalculator>();
-            var actual = calculator.LongestIncreasingSubsequence(input);
+            var actual = calculator.ComputeLongestIncreasingSubsequence(input);
             Assert.That(actual, Is.EqualTo(result));
         }
 
@@ -36,7 +36,7 @@ namespace LIS.Tests
         public void Test03(string input, int[] result)
         {
             var calculator = _services.GetRequiredService<ICalculator>();
-            var actual = calculator.LongestIncreasingSubsequence(input);
+            var actual = calculator.ComputeLongestIncreasingSubsequence(input);
             Assert.That(actual, Is.EqualTo(result));
         }
 
@@ -44,7 +44,7 @@ namespace LIS.Tests
         public void Test04(string input, int[] result)
         {
             var calculator = _services.GetRequiredService<ICalculator>();
-            var actual = calculator.LongestIncreasingSubsequence(input);
+            var actual = calculator.ComputeLongestIncreasingSubsequence(input);
             Assert.That(actual, Is.EqualTo(result));
         }
 
@@ -52,7 +52,7 @@ namespace LIS.Tests
         public void Test05(string input, int[] result)
         {
             var calculator = _services.GetRequiredService<ICalculator>();
-            var actual = calculator.LongestIncreasingSubsequence(input);
+            var actual = calculator.ComputeLongestIncreasingSubsequence(input);
             Assert.That(actual, Is.EqualTo(result));
         }
 
@@ -60,7 +60,7 @@ namespace LIS.Tests
         public void Test06(string input, int[] result)
         {
             var calculator = _services.GetRequiredService<ICalculator>();
-            var actual = calculator.LongestIncreasingSubsequence(input);
+            var actual = calculator.ComputeLongestIncreasingSubsequence(input);
             Assert.That(actual, Is.EqualTo(result));
         }
 
@@ -68,7 +68,7 @@ namespace LIS.Tests
         public void Test07(string input, int[] result)
         {
             var calculator = _services.GetRequiredService<ICalculator>();
-            var actual = calculator.LongestIncreasingSubsequence(input);
+            var actual = calculator.ComputeLongestIncreasingSubsequence(input);
             Assert.That(actual, Is.EqualTo(result));
         }
 
@@ -76,7 +76,7 @@ namespace LIS.Tests
         public void Test08(string input, int[] result)
         {
             var calculator = _services.GetRequiredService<ICalculator>();
-            var actual = calculator.LongestIncreasingSubsequence(input);
+            var actual = calculator.ComputeLongestIncreasingSubsequence(input);
             Assert.That(actual, Is.EqualTo(result));
         }
 
@@ -84,7 +84,7 @@ namespace LIS.Tests
         public void Test09(string input, int[] result)
         {
             var calculator = _services.GetRequiredService<ICalculator>();
-            var actual = calculator.LongestIncreasingSubsequence(input);
+            var actual = calculator.ComputeLongestIncreasingSubsequence(input);
             Assert.That(actual, Is.EqualTo(result));
         }
 
@@ -92,7 +92,7 @@ namespace LIS.Tests
         public void Test10(string input, int[] result)
         {
             var calculator = _services.GetRequiredService<ICalculator>();
-            var actual = calculator.LongestIncreasingSubsequence(input);
+            var actual = calculator.ComputeLongestIncreasingSubsequence(input);
             Assert.That(actual, Is.EqualTo(result));
         }
 
@@ -100,7 +100,7 @@ namespace LIS.Tests
         public void Test11(string input, int[] result)
         {
             var calculator = _services.GetRequiredService<ICalculator>();
-            var actual = calculator.LongestIncreasingSubsequence(input);
+            var actual = calculator.ComputeLongestIncreasingSubsequence(input);
             Assert.That(actual, Is.EqualTo(result));
         }
 

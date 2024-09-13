@@ -2,6 +2,8 @@
 {
     public interface ICalculator
     {
-        int[] LongestIncreasingSubsequence(string inputSequence);
+        string[] ParseStringToStringArray(string inputSequence);
+        int[] ConvertStringArrayToIntArray(string[] inputSequence);
+        int[] ComputeLongestIncreasingSubsequence(string inputSequence);
     }
 }
