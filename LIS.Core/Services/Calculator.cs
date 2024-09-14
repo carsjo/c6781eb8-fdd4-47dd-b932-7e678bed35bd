@@ -5,14 +5,9 @@ namespace LIS.Core.Services
     internal class Calculator : ICalculator
     {
         public string[] ParseStringToStringArray(string inputSequence)
-        {
-            if (string.IsNullOrWhiteSpace(inputSequence))
-            {
-                return [];
-            }
-
-            return inputSequence.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries) ?? [];
-        }
+            => string.IsNullOrWhiteSpace(inputSequence)
+                    ? []
+                    : inputSequence.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries) ?? [];
 
         public int[] ConvertStringArrayToIntArray(string[] inputSequence)
         {
@@ -64,13 +59,7 @@ namespace LIS.Core.Services
 
                 CheckCurrentGreaterThanMax();
 
-                var longestSequence = new List<int>();
-                for (var i = 0; i < maxLength; i++)
-                {
-                    longestSequence.Add(intArr[maxStartIndex + i]);
-                }
-
-                return [.. longestSequence];
+                return [.. new ArraySegment<int>(intArr, maxStartIndex, maxLength)];
 
                 void CheckCurrentGreaterThanMax()
                 {
@@ -86,6 +75,5 @@ namespace LIS.Core.Services
                 return [];
             }
         }
-
     }
 }
