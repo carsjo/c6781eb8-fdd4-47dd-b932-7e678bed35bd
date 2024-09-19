@@ -21,7 +21,7 @@ namespace LIS.Core.Services
             }
         }
 
-        public int[] ComputeLongestIncreasingSubsequence(string inputSequence)
+        public ArraySegment<int> ComputeLongestIncreasingSubsequence(string inputSequence)
         {
             try
             {
@@ -59,7 +59,7 @@ namespace LIS.Core.Services
 
                 CheckCurrentGreaterThanMax();
 
-                return [.. new ArraySegment<int>(intArr, maxStartIndex, maxLength)];
+                return new ArraySegment<int>(intArr, maxStartIndex, maxLength);
 
                 void CheckCurrentGreaterThanMax()
                 {

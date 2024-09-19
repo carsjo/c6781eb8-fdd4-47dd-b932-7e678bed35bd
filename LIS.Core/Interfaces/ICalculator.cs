@@ -4,6 +4,6 @@
     {
         string[] ParseStringToStringArray(string inputSequence);
         int[] ConvertStringArrayToIntArray(string[] inputSequence);
-        int[] ComputeLongestIncreasingSubsequence(string inputSequence);
+        ArraySegment<int> ComputeLongestIncreasingSubsequence(string inputSequence);
     }
 }
